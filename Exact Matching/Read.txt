@@ -1,0 +1,9 @@
+>> Problem Definition:
+Lets P as a word, T as the sequence where might include P
+Offsets: the index where P starts
+---------------
+>> 1. Naive
+
+---------------
+---------------
+---------------
