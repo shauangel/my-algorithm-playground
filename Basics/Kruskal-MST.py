@@ -1,6 +1,16 @@
 """
 Input: an undirected graph G = (V, E), weight of edges
 Output: a minimal spanning tree
+----
+Time Complexity:
+(1) Naive try (using linked list)
+- find_set: O(1)
+- make_set: O(1)
+- union_set (u, v): O(min(u, v))
+=> initialize sets: O(|V|)
+=> sort edges: O(|E|log|V|)
+=> iteration: 
+(2)
 """
 vertex = ['A', 'B', 'C', 'D', 'E', 'F']
 edges = [
