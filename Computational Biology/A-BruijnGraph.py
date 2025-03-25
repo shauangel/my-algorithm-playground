@@ -1,4 +1,8 @@
 """
+Alignment-Based Bruijn graph (A-Bruijn)
+"""
+
+"""
 Definitions:
 Let DB(seq, k) as a de bruijn graph representing seq
 Let Path(seq, k) as a path consisting |String|-k+1 edges
@@ -11,20 +15,21 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 
-class DeBruijnGraph:
-    def __init__(self, seq):
-        self.seq = seq
+class ABruijnGraph:
+    def __init__(self, reads):
+        self.reads = reads
         self.nodes = set()
-        self.edges = []
+        self.edges = {}
 
     def compute(self, k):
-        for i in range(len(self.seq)-k+1):
-            kmer = self.seq[i:i+k]
-            prefix = kmer[0:k-1]
-            suffix = kmer[1:k]
-            self.nodes.add(prefix)
-            self.nodes.add(suffix)
-            self.edges.append((prefix, suffix))
+        for seq in self.reads:
+            for i in range(len(seq)-k+1):
+                kmer = seq[i:i+k]
+                prefix = kmer[0:k-1]
+                suffix = kmer[1:k]
+                self.nodes.add(prefix)
+                self.nodes.add(suffix)
+                self.edges[(prefix, suffix)] = self.edges.get((prefix, suffix), 0) + 1
 
     def get_adjacency_list(self):
         adj = {node:set() for node in self.nodes}
@@ -43,9 +48,9 @@ class DeBruijnGraph:
 if __name__ == "__main__":
     with open("test.FASTA", 'r') as f:
         data = f.readlines()
-    dbg = DeBruijnGraph(data[1].replace('\n', ''))
+    dbg = ABruijnGraph([data[1].replace('\n', '')])
     dbg.compute(3)
-    print(dbg.nodes)
+    # print(dbg.nodes)
     print(dbg.edges)
-    dbg.display()
+    # dbg.display()
 
