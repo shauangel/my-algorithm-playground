@@ -1,4 +1,9 @@
 **Basic**
 BFS
+Dijkstra
+Prim-MST
+multiplication
+matrix multiplication
+
 HuffmanEncoding
 
