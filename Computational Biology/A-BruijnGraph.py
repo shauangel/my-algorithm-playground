@@ -1,5 +1,6 @@
 """
 Alignment-Based Bruijn graph (A-Bruijn)
+Given a String or a set of Reads, structure the graph with a set of
 """
 
 """

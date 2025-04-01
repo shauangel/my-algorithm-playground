@@ -43,9 +43,11 @@ class DeBruijnGraph:
 if __name__ == "__main__":
     with open("test.FASTA", 'r') as f:
         data = f.readlines()
-    dbg = DeBruijnGraph(data[1].replace('\n', ''))
+    test = "CATCAGATAGGA"
+    # dbg = DeBruijnGraph(data[1].replace('\n', ''))
+    dbg = DeBruijnGraph(test)
     dbg.compute(3)
     print(dbg.nodes)
     print(dbg.edges)
-    dbg.display()
+    # dbg.display()
 
