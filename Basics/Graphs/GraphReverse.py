@@ -25,7 +25,7 @@ if __name__ == "__main__":
     #     9: [4],
     #     10: [3, 9]
     # }
-    with open("data/g1.json", "r") as f:
+    with open("../data/g1.json", "r") as f:
         test = json.load(f)
     g_r = reverse_g(test)
     dfs = DFS_time(g_r)
